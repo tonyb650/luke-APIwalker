@@ -11,6 +11,10 @@ import {
   Route,
 } from "react-router-dom";
 
+// Here on the App.jsx file, we have 2 simple components and the main App 'root' function
+// the two simple components are 'Home' ("/" route) that renders when the page is first loaded
+// and 'EmptyResults' which renders when a search comes up empty (an API get error)
+
 const Home = (props) => {
   return (
     <>
@@ -28,8 +32,13 @@ const EmptyResults = (props) => {
   )
 }
 
-function App() {
+// in this main App function, we wrap everything in <BrowserRouter>.
+// I found out that having the <SearchForm> component outside of the <BrowserRouter>
+// won't work because useNavigate becomes inaccessible to the <SearchForm> component.
+// So we have <SearchFrom> and the various routes for categories of searches (people/planets/starships)
+// as well as the Home and EmptyResults edge cases within <Routes>
 
+function App() {
   return (
     <>
       <BrowserRouter>

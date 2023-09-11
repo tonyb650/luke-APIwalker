@@ -2,6 +2,12 @@ import { useState } from "react";
 import App from "../App";
 import { useNavigate } from 'react-router-dom';
 
+// In SearchForm, we set up a user form to receive two search criteria for eventual use in our API call:
+// We put both of these in state with 2-way binding: searchResource and searchID
+// They are always ready to use as soon as the user triggers 'onSubmit' which executes the 'handleSearch' function
+// 'handleSearch' is very simple and just navigates to a new route, triggering rerendering of <Routes> in App.jsx
+// The API requests are handled within those various components
+
 const SearchForm = (props) => {
     const [searchResource, setSearchResource] = useState("people");
     const [searchID, setSearchID] = useState(1);
